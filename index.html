@@ -12,18 +12,19 @@
 <body>
     <header>
         <div class="logo">
-            <!-- Aquí el logo del club, con la extensión .jpeg corregida -->
+            <!-- Aquí el logo del club, con la extensión .jpeg -->
             <img src="logo-de-peon-a-rey.jpeg" alt="Club De Ajedrez ¡De Peón A Rey!">
         </div>
         <nav>
-    <ul>
-        <li><a href="#clases">Clases</a></li>
-        <li><a href="#contenedor-noticias">Noticias</a></li>
-        <li><a href="#contenedor-tienda">Tienda</a></li>
-        <li><a href="#contenedor-canal">Canal</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
-</nav>
+            <ul>
+                <li><a href="#clases">Clases</a></li>
+                <!-- Ahora, los enlaces de las otras secciones también van aquí -->
+                <li><a href="#contenedor-noticias">Noticias</a></li>
+                <li><a href="#contenedor-tienda">Tienda</a></li>
+                <li><a href="#contenedor-canal">Canal</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">0</span>
@@ -57,11 +58,21 @@
             </div>
         </section>
 
-        <!-- Carga las sesiones desde archivos separados -->
-        <!-- Estos contenedores deberían ser el ID de la sección que cargarán -->
-        <section id="contenedor-noticias"></section>
-        <section id="contenedor-tienda"></section>
-        <section id="contenedor-canal"></section>
+        <!-- Contenedores para cargar las sesiones desde archivos separados -->
+        <!-- Es crucial que estos archivos (sesion-noticias.html, etc.) NO contengan un HTML completo (sin DOCTYPE, head, body) -->
+        <section id="contenedor-noticias">
+            <!-- Si sesion-noticias.html no existe o está vacío, se mostrará un mensaje por defecto aquí -->
+            <h2>Noticias</h2>
+            <p>Aquí se publicarán nuestras últimas noticias y eventos.</p>
+        </section>
+        <section id="contenedor-tienda">
+            <h2>Tienda</h2>
+            <p>Explora nuestros productos relacionados con el ajedrez.</p>
+        </section>
+        <section id="contenedor-canal">
+            <h2>Canal de YouTube</h2>
+            <p>Visita nuestro canal para tutoriales y partidas comentadas.</p>
+        </section>
 
         <!-- Sección Contacto -->
         <section id="contacto">
@@ -80,15 +91,35 @@
     <!-- Script para cargar sesiones y lógica del carrito -->
     <script>
         // Función para cargar cada sesión
-        function cargarSesion(archivo, contenedor) {
+        function cargarSesion(archivo, contenedorId) {
             fetch(archivo)
-                .then(res => res.text())
-                .then(html => document.getElementById(contenedor).innerHTML = html)
-                .catch(err => console.log('Error:', err));
+                .then(response => {
+                    if (!response.ok) {
+                        // Si el archivo no existe o hay un error, lo registramos y no hacemos nada
+                        console.warn(`No se pudo cargar el archivo: ${archivo}`);
+                        return Promise.reject(`Error al cargar ${archivo}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    const contenedor = document.getElementById(contenedorId);
+                    if (contenedor) {
+                        contenedor.innerHTML = html;
+                    }
+                })
+                .catch(error => {
+                    console.error('Fallo en cargarSesion:', error);
+                    // Aquí podrías opcionalmente mostrar un mensaje de error en el contenedor
+                    // const contenedor = document.getElementById(contenedorId);
+                    // if (contenedor) {
+                    //     contenedor.innerHTML = `<section><h2>Error</h2><p>No se pudo cargar el contenido de esta sección.</p></section>`;
+                    // }
+                });
         }
 
         // Cargar las sesiones al abrir la página y actualizar el carrito
         window.onload = () => {
+            // Cargar contenido de archivos externos. Es crucial que esos archivos contengan SOLO el HTML de la sección.
             cargarSesion('sesion-noticias.html', 'contenedor-noticias');
             cargarSesion('sesion-tienda.html', 'contenedor-tienda');
             cargarSesion('sesion-canal.html', 'contenedor-canal');
@@ -109,8 +140,7 @@
                 const producto = {
                     id: card.dataset.id,
                     nombre: card.dataset.name,
-                    // Ya no usamos precioUsd directamente en la UI, pero lo mantenemos por si el script lo necesita
-                    precioUsd: parseFloat(card.dataset.price),
+                    precioUsd: parseFloat(card.dataset.price), // Mantenemos data-price para el script si es necesario
                     precioArs: parseFloat(card.dataset.priceArs),
                     cantidad: 1
                 };
@@ -127,8 +157,13 @@
 
         // Lógica del botón de pago (Mercado Pago)
         document.querySelector('.checkout-btn').addEventListener('click', () => {
-            if (cart.length === 0) alert('Carrito vacío!');
-            else window.location.href = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID';
+            if (cart.length === 0) {
+                alert('El carrito está vacío. Agrega clases antes de pagar.');
+            } else {
+                // Aquí deberías redirigir a Mercado Pago con los detalles del carrito.
+                // Esta es una URL de ejemplo, necesitarías generar una real con los productos del carrito.
+                window.location.href = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID_REAL';
+            }
         });
     </script>
 </body>
