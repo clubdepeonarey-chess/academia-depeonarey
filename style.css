@@ -1,136 +1,265 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club De Ajedrez ¡De Peón A Rey!</title>
-    <!-- Enlace a tu archivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Enlace a Font Awesome para los iconos de carrito e Instagram -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <!-- Aquí el logo del club, con la extensión .jpeg -->
-            <img src="logo-de-peon-a-rey.jpeg" alt="Club De Ajedrez ¡De Peón A Rey!">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#clases">Clases</a></li>
-                <!-- Ahora, los enlaces de las otras secciones también van aquí -->
-                <li><a href="#contenedor-noticias">Noticias</a></li>
-                <li><a href="#contenedor-tienda">Tienda</a></li>
-                <li><a href="#contenedor-canal">Canal</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </div>
-    </header>
+/* Variables de color para fácil manejo */
+:root {
+    --verde-principal: #2ECC71; /* Verde esmeralda */
+    --naranja-principal: #FF8C00; /* Naranja oscuro */
+    --blanco: #FFFFFF;
+    --gris-fondo: #f4f4f4;
+    --gris-texto: #333;
+}
 
-    <!-- Contenedor Principal -->
-    <div class="container">
-        <!-- Sección Clases -->
-        <section id="clases">
-            <h2>Clases y Servicios</h2>
-            <div class="grid">
-                <div class="card" data-id="1" data-name="Clases Individuales" data-price="25" data-price-ars="3500">
-                    <h3>Clases Individuales</h3>
-                    <p>Entrenamiento personalizado.</p>
-                    <p><strong>ARS 3.500</strong></p> <!-- USD eliminado -->
-                    <a href="#" class="btn add-to-cart">Reservar</a>
-                </div>
-                <div class="card" data-id="2" data-name="Clases Grupales" data-price="12" data-price-ars="1200">
-                    <h3>Clases Grupales</h3>
-                    <p>Aprendé junto a otros alumnos.</p>
-                    <p><strong>ARS 1.200</strong></p> <!-- USD eliminado -->
-                    <a href="#" class="btn add-to-cart">Inscribirme</a>
-                </div>
-                <div class="card" data-id="3" data-name="Programas Mensuales" data-price="89" data-price-ars="8900">
-                    <h3>Programas Mensuales</h3>
-                    <p>Seguimiento completo.</p>
-                    <p><strong>ARS 8.900</strong></p> <!-- USD eliminado -->
-                    <a href="#" class="btn add-to-cart">Consultar</a>
-                </div>
-            </div>
-        </section>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--gris-fondo); /* Fondo claro */
+    color: var(--gris-texto);
+}
 
-        <!-- Carga las sesiones desde archivos separados -->
-        <!-- Estos contenedores deberían ser el ID de la sección que cargarán -->
-        <section id="contenedor-noticias"></section>
-        <section id="contenedor-tienda"></section>
-        <section id="contenedor-canal"></section>
+header {
+    background-color: var(--verde-principal); /* Verde principal para el header */
+    color: var(--blanco);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos: logo a la izquierda, nav en el medio, carrito a la derecha */
+    align-items: center;
+    position: sticky; /* Hace que el header se quede arriba al hacer scroll */
+    top: 0;
+    z-index: 1000; /* Asegura que el header esté sobre otros elementos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 80px; /* Altura ligeramente reducida para el header */
+}
 
-        <!-- Sección Contacto -->
-        <section id="contacto">
-            <h2>Contacto y Redes</h2>
-            <div class="contact-info">
-                <p><strong>Horario:</strong> Lun-Vie 9:00-20:00 | Sáb 10:00-14:00</p>
-                <p><strong>Correo:</strong> <a href="mailto:clubdeajedrezpena@gmail.com">clubdeajedrezpena@gmail.com</a></p>
-                <!-- Enlace a Instagram con el icono de Font Awesome -->
-                <p><strong>Instagram:</strong> <a href="https://instagram.com/depeonarey" target="_blank"><i class="fab fa-instagram"></i> @depeonarey</a></p>
-            </div>
-            <!-- Botón de pago para Mercado Pago -->
-            <button class="btn checkout-btn">Pagar con Mercado Pago</button>
-        </section>
-    </div>
+header .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
 
-    <!-- Script para cargar sesiones y lógica del carrito -->
-    <script>
-        // Función para cargar cada sesión
-        function cargarSesion(archivo, contenedor) {
-            fetch(archivo)
-                .then(res => res.text())
-                .then(html => document.getElementById(contenedor).innerHTML = html)
-                .catch(err => console.log('Error:', err));
-        }
+header .logo img {
+    height: 60px; /* Tamaño del logo AHORA es 60px (más pequeño) */
+    width: 60px;  /* Ancho del logo AHORA es 60px */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--naranja-principal);
+    background-color: var(--blanco);
+    padding: 2px;
+}
 
-        // Cargar las sesiones al abrir la página y actualizar el carrito
-        window.onload = () => {
-            cargarSesion('sesion-noticias.html', 'contenedor-noticias');
-            cargarSesion('sesion-tienda.html', 'contenedor-tienda');
-            cargarSesion('sesion-canal.html', 'contenedor-canal');
-            updateCart(); // Inicializar el contador del carrito
-        };
+header nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
 
-        // Lógica del carrito de compras
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        function updateCart() {
-            const count = cart.reduce((t, i) => t + i.cantidad, 0);
-            document.querySelector('.cart-count').textContent = count;
-        }
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
 
-        document.querySelectorAll('.add-to-cart').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); // Evitar el comportamiento predeterminado del enlace
-                const card = btn.closest('.card');
-                const producto = {
-                    id: card.dataset.id,
-                    nombre: card.dataset.name,
-                    // Ya no usamos precioUsd directamente en la UI, pero lo mantenemos por si el script lo necesita
-                    precioUsd: parseFloat(card.dataset.price),
-                    precioArs: parseFloat(card.dataset.priceArs),
-                    cantidad: 1
-                };
+header nav ul li {
+    /* Mantenemos vacío ya que gap maneja el espacio */
+}
 
-                const existente = cart.find(p => p.id === producto.id);
-                if (existente) existente.cantidad++;
-                else cart.push(producto);
+header nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
 
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCart();
-                alert(`${producto.nombre} agregado al carrito!`);
-            });
-        });
+header nav ul li a:hover {
+    background-color: var(--naranja-principal);
+    color: var(--blanco);
+}
 
-        // Lógica del botón de pago (Mercado Pago)
-        document.querySelector('.checkout-btn').addEventListener('click', () => {
-            if (cart.length === 0) alert('Carrito vacío!');
-            else window.location.href = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID';
-        });
-    </script>
-</body>
-</html>
+.cart-icon {
+    position: relative;
+    font-size: 1.8em;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.cart-icon .fa-shopping-cart {
+    color: var(--blanco);
+}
+
+.cart-count {
+    background-color: var(--naranja-principal);
+    color: var(--blanco);
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.6em;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: var(--blanco);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: var(--verde-principal);
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--naranja-principal);
+    padding-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--blanco);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--naranja-principal);
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    color: var(--gris-texto);
+    font-size: 1.1em;
+}
+
+.card strong {
+    color: var(--verde-principal);
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #27AE60;
+    transform: translateY(-2px);
+}
+
+/* Estilos de Contacto */
+#contacto {
+    background-color: var(--naranja-principal);
+    color: var(--blanco);
+    padding: 40px;
+}
+
+#contacto h2 {
+    color: var(--blanco);
+    border-bottom-color: var(--blanco);
+}
+
+#contacto .contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contacto .contact-info p {
+    margin: 5px 0;
+}
+
+#contacto .contact-info a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contacto .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Icono de Instagram */
+#contacto .contact-info .fab.fa-instagram {
+    font-size: 1.2em;
+    margin-right: 5px;
+    color: var(--blanco);
+}
+
+.checkout-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+}
+
+.checkout-btn:hover {
+    background-color: #27AE60;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 900px) {
+    header {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+    }
+    header .logo, .cart-icon {
+        margin-bottom: 10px;
+    }
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    header nav ul li a {
+        padding: 5px 10px;
+    }
+    .cart-icon {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo img {
+        height: 50px; /* Más pequeño para móviles */
+        width: 50px;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .btn {
+        padding: 8px 15px;
+    }
+    .card {
+        padding: 15px;
+    }
+}
