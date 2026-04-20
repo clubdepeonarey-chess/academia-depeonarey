@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club De Ajedrez ¡De Peón A Rey!</title>
+    <!-- Título de la barra de direcciones CORREGIDO -->
+    <title>Club de Ajedrez de Peña Rey.com</title>
     <!-- Favicon Verde y Naranja -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%232E8B57%22>♟</text><text x=%2240%22 y=%22.9em%22 font-size=%2290%22 fill=%22%23FF7F00%22>♚</text></svg>" type="image/svg+xml">
     <style>
@@ -18,7 +19,7 @@
             color: #333;
             line-height: 1.6;
         }
-        /* Barra de Navegación con solapa YouTube */
+        /* Barra de Navegación */
         .nav-bar {
             background-color: #2E8B57;
             padding: 0.5rem;
@@ -29,8 +30,6 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            overflow-x: auto;
-            white-space: nowrap;
         }
         .nav-tab {
             color: white;
@@ -44,7 +43,7 @@
         .nav-tab:hover, .nav-tab.active {
             background-color: #FF7F00;
         }
-        /* Header con Logo perfecto */
+        /* Header */
         header {
             background-color: #2E8B57;
             color: white;
@@ -52,10 +51,14 @@
             text-align: center;
         }
         .club-logo {
-            max-width: 220px; /* Tamaño ideal - no se ve cortado */
+            max-width: 220px;
             height: auto;
             margin: 0 auto 1rem auto;
             display: block;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
         }
         /* Contenedor Principal */
         .container {
@@ -79,7 +82,7 @@
             padding-bottom: 0.5rem;
         }
         /* Grillas */
-        .services-grid, .news-grid, .shop-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
@@ -109,7 +112,7 @@
         .btn:hover {
             background-color: #E67300;
         }
-        /* Sección Canal YouTube */
+        /* Sección YouTube */
         .youtube-section {
             text-align: center;
             padding: 3rem 2rem;
@@ -136,7 +139,7 @@
     </style>
 </head>
 <body>
-    <!-- Barra de Navegación con solapa "Nuestro Canal" -->
+    <!-- Barra de Navegación -->
     <nav class="nav-bar">
         <a href="#inicio" class="nav-tab active">Inicio</a>
         <a href="#clases" class="nav-tab">Clases</a>
@@ -146,27 +149,27 @@
         <a href="#contacto" class="nav-tab">Contacto</a>
     </nav>
 
-    <!-- Header con Logo -->
+    <!-- Header con Logo y Título -->
     <header id="inicio">
-        <img src="https://raw.githubusercontent.com/clubdepeonarey-chess/academia-depeonarey/main/logo-club.png" alt="Logo Club De Ajedrez ¡De Peón A Rey!" class="club-logo">
-        <h1>Club De Ajedrez ¡De Peón A Rey!</h1>
-        <p>Rosario, Santa Fe - Argentina | Clases Online para Todos los Niveles</p>
+        <img src="https://raw.githubusercontent.com/clubdepeonarey-chess/academia-depeonarey/main/logo-club.png" alt="Logo Club de Ajedrez de Peña Rey" class="club-logo">
+        <h1>Club de Ajedrez de Peña Rey.com</h1>
+        <p>Rosario, Santa Fe - Argentina</p>
     </header>
 
     <div class="container">
         <!-- Sección Clases -->
         <section id="clases">
             <h2>Clases y Servicios</h2>
-            <div class="services-grid">
+            <div class="grid">
                 <div class="card">
                     <h3>Clases Individuales</h3>
-                    <p>Entrenamiento personalizado adaptado a tu nivel y objetivos.</p>
+                    <p>Entrenamiento personalizado a tu nivel.</p>
                     <p><strong>USD 25/clase | ARS 3.500/clase</strong></p>
                     <a href="#contacto" class="btn">Reservar</a>
                 </div>
                 <div class="card">
                     <h3>Clases Grupales</h3>
-                    <p>Aprendé junto a otros alumnos con dinámicas interactivas.</p>
+                    <p>Aprendé junto a otros alumnos.</p>
                     <p><strong>USD 12/clase | ARS 1.200/clase</strong></p>
                     <a href="#contacto" class="btn">Inscribirme</a>
                 </div>
@@ -182,21 +185,21 @@
         <!-- Sección Noticias -->
         <section id="noticias">
             <h2>Noticias y Torneos</h2>
-            <div class="news-grid">
+            <div class="grid">
                 <div class="card">
                     <h3>¡Torneo de Pascua Ganado!</h3>
-                    <p>Nuestro alumno Mateo S. se llevó el primer puesto del torneo regional.</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver Detalles</a>
+                    <p>Nuestro alumno Mateo S. se llevó el primer puesto.</p>
+                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Ver Detalles</a>
                 </div>
                 <div class="card">
                     <h3>Nuevo Turno de Clases</h3>
-                    <p>Agregamos clases los sábados por la mañana para principiantes.</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Más Info</a>
+                    <p>Agregadas clases los sábados por la mañana.</p>
+                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Más Info</a>
                 </div>
                 <div class="card">
                     <h3>Torneo Nacional Junio</h3>
-                    <p>Del 10 al 12 de junio - Inscripciones abiertas hasta el 31/05.</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Inscribirme</a>
+                    <p>Inscripciones abiertas hasta el 31/05.</p>
+                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Inscribirme</a>
                 </div>
             </div>
         </section>
@@ -204,34 +207,34 @@
         <!-- Sección Tienda -->
         <section id="tienda">
             <h2>Tienda Online</h2>
-            <div class="shop-grid">
+            <div class="grid">
                 <div class="card">
-                    <h3>Libro "De Peón A Rey"</h3>
-                    <p>Guía completa para aprender ajedrez desde cero.</p>
+                    <h3>Libro "De Peña Rey"</h3>
+                    <p>Guía completa para principiantes.</p>
                     <p><strong>USD 29 | ARS 2.900</strong></p>
                     <a href="#contacto" class="btn">Comprar</a>
                 </div>
                 <div class="card">
                     <h3>Tablero Digital</h3>
-                    <p>Compatible con clases online y partidas grabadas.</p>
+                    <p>Compatible con clases online.</p>
                     <p><strong>USD 79 | ARS 7.900</strong></p>
                     <a href="#contacto" class="btn">Comprar</a>
                 </div>
                 <div class="card">
-                    <h3>Set de Piezas de Madera</h3>
-                    <p>Con logo del club grabado en cada pieza.</p>
+                    <h3>Set de Madera</h3>
+                    <p>Con logo del club.</p>
                     <p><strong>USD 59 | ARS 5.900</strong></p>
                     <a href="#contacto" class="btn">Comprar</a>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Nuestro Canal YouTube -->
+        <!-- Sección Canal YouTube -->
         <section id="canal" class="youtube-section">
             <h2>Nuestro Canal de YouTube</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.png" alt="Logo YouTube" class="youtube-logo">
-            <p>¡Suscribite para ver clases gratuitas, análisis de partidas y mucho más!</p>
-            <a href="https://www.youtube.com/@clubdepeonarey" target="_blank" class="btn">Ir al Canal</a>
+            <p>¡Suscribite para clases gratuitas y análisis de partidas!</p>
+            <a href="https://www.youtube.com/@clubdeajedrezpena" target="_blank" class="btn">Ir al Canal</a>
         </section>
 
         <!-- Sección Contacto -->
@@ -239,18 +242,17 @@
             <h2>Contacto y Redes</h2>
             <div class="contact-info">
                 <p><strong>Horario:</strong> Lun-Vie 9:00-20:00 | Sáb 10:00-14:00 (UTC-3)</p>
-                <p><strong>Correo:</strong> <a href="mailto:clubdepeonarey@gmail.com" class="social-link">clubdepeonarey@gmail.com</a></p>
-                <p><strong>Instagram:</strong> <a href="https://instagram.com/depeon.arey" target="_blank" class="social-link">@depeon.arey</a></p>
-                <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@clubdepeonarey" target="_blank" class="social-link">@clubdepeonarey</a></p>
+                <p><strong>Correo:</strong> <a href="mailto:clubdeajedrezpena@gmail.com" class="social-link">clubdeajedrezpena@gmail.com</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/depeonarey" target="_blank" class="social-link">@depeonarey</a></p>
+                <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@clubdeajedrezpena" target="_blank" class="social-link">@clubdeajedrezpena</a></p>
                 <p><strong>Pagos:</strong> Dólares (Stripe/PayPal) | Pesos (MercadoPago)</p>
             </div>
-            <a href="mailto:clubdepeonarey@gmail.com" class="btn">Enviar Mensaje</a>
+            <a href="mailto:clubdeajedrezpena@gmail.com" class="btn">Enviar Mensaje</a>
         </section>
     </div>
 
     <!-- Script para Pestañas Activas -->
     <script>
-        // Resaltar pestaña activa al hacer scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const tabs = document.querySelectorAll('.nav-tab');
@@ -269,17 +271,14 @@
             });
         });
 
-        // Scroll suave al hacer click en pestañas
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const target = tab.getAttribute('href');
                 if (target === '#inicio') {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else if (target === '#canal') {
-                    window.open('https://www.youtube.com/@clubdepeonarey', '_blank');
                 } else {
                     document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
                 }
