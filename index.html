@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club De Ajedrez ¡De Peón A Rey!</title>
-    <!-- Favicon con colores del club -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%232E8B57%22>♟</text><text x=%2240%22 y=%22.9em%22 font-size=%2290%22 fill=%22%23FF7F00%22>♚</text></svg>" type="image/svg+xml">
+    <!-- Favicon negro -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23000000%22>♟♚</text></svg>" type="image/svg+xml">
     <style>
         * {
             margin: 0;
@@ -18,25 +18,43 @@
             color: #333;
             line-height: 1.6;
         }
-        header {
+        /* Barra de navegación con solapas */
+        .nav-bar {
             background-color: #2E8B57; /* Verde club */
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .nav-tab:hover {
+            background-color: #FF7F00; /* Naranja club */
+        }
+        .nav-tab.active {
+            background-color: #FF7F00;
+        }
+        header {
+            background-color: #2E8B57;
             color: white;
             padding: 2rem;
             text-align: center;
             position: relative;
         }
-        /* Logo del club en el header */
+        /* Logo oficial del club */
         .club-logo {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            font-size: 2.5rem;
-        }
-        .club-logo span:first-child {
-            color: #FF7F00; /* Anaranjado club */
-        }
-        .club-logo span:last-child {
-            color: white;
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 1rem;
         }
         .container {
             max-width: 1200px;
@@ -46,7 +64,7 @@
         .btn {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background-color: #FF7F00; /* Anaranjado club */
+            background-color: #FF7F00;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -55,20 +73,20 @@
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #E67300; /* Anaranjado más oscuro */
+            background-color: #E67300;
         }
         section {
             margin-bottom: 3rem;
-            padding: 1rem;
+            padding: 2rem;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
-            color: #2E8B57; /* Verde club */
+            color: #2E8B57;
             margin-bottom: 1.5rem;
             text-align: center;
-            border-bottom: 2px solid #FF7F00; /* Anaranjado club */
+            border-bottom: 2px solid #FF7F00;
             padding-bottom: 0.5rem;
         }
         .services-grid {
@@ -85,24 +103,24 @@
             transition: box-shadow 0.3s ease;
         }
         .service-card:hover {
-            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2); /* Sombra verde */
+            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2);
         }
         .testimonial {
             margin: 1.5rem 0;
             padding: 1rem;
-            border-left: 4px solid #2E8B57; /* Verde club */
+            border-left: 4px solid #2E8B57;
         }
         .contact-info {
             text-align: center;
             margin-top: 1rem;
         }
         .social-link {
-            color: #2E8B57; /* Verde club */
+            color: #2E8B57;
             text-decoration: none;
             font-weight: bold;
         }
         .social-link:hover {
-            color: #FF7F00; /* Anaranjado club */
+            color: #FF7F00;
             text-decoration: underline;
         }
         .news-grid {
@@ -119,101 +137,178 @@
             transition: box-shadow 0.3s ease;
         }
         .news-card:hover {
-            box-shadow: 0 4px 8px rgba(255, 127, 0, 0.2); /* Sombra naranja */
+            box-shadow: 0 4px 8px rgba(255, 127, 0, 0.2);
         }
-        /* Ajuste para móviles */
+        /* Sección Tienda Online */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .product-card {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2);
+        }
+        /* Ajustes móviles */
         @media (max-width: 768px) {
-            .club-logo {
-                position: static;
-                margin-bottom: 1rem;
+            .nav-bar {
+                flex-direction: column;
+            }
+            .nav-tab {
+                text-align: left;
+                padding-left: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Barra de navegación con solapas -->
+    <nav class="nav-bar">
+        <a href="#inicio" class="nav-tab active">Inicio</a>
+        <a href="#clases" class="nav-tab">Clases</a>
+        <a href="#noticias" class="nav-tab">Noticias</a>
+        <a href="#tienda" class="nav-tab">Tienda Online</a>
+        <a href="#contacto" class="nav-tab">Contacto</a>
+    </nav>
+
+    <!-- Header con logo oficial -->
     <header id="inicio">
-        <!-- Logo del club visible en el header -->
-        <div class="club-logo">
-            <span>♟</span><span>♚</span>
-        </div>
+        <!-- Logo oficial que definimos juntos -->
+        <img src="https://i.imgur.com/EXAMPLE_LOGO.png" alt="Logo Club De Peón A Rey" class="club-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22><text y=%22.9em%22 font-size=%2260%22 fill=%22%23FFFFFF%22>CLUB DE AJEDREZ ♟♚</text></svg>'">
         <h1>Club De Ajedrez ¡De Peón A Rey!</h1>
-        <p>Clases online para principiantes, intermedias y avanzados. Pago en dólares y pesos argentinos - Flexibilidad horaria.</p>
-        <a href="#cursos" class="btn">Ver Nuestros Cursos</a>
+        <p>Clases online, noticias, torneos y tienda para todos los niveles</p>
     </header>
 
     <div class="container">
-        <!-- Sección de Servicios -->
-        <section id="cursos">
-            <h2>Nuestros Servicios</h2>
+        <!-- Sección Clases -->
+        <section id="clases">
+            <h2>Clases y Servicios</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Clases Individuales</h3>
                     <p>Entrenamiento personalizado adaptado a tu nivel y objetivos.</p>
                     <p><strong>USD 25/clase | ARS 3.500/clase</strong></p>
-                    <a href="#contacto" class="btn">Reservar</a>
+                    <a href="#contacto" class="btn">Reservar Clase</a>
                 </div>
                 <div class="service-card">
                     <h3>Clases Grupales</h3>
-                    <p>Aprende junto a otros alumnos con dinámicas y actividades interactivas.</p>
+                    <p>Aprendé junto a otros alumnos con dinámicas interactivas.</p>
                     <p><strong>USD 12/clase | ARS 1.200/clase</strong></p>
                     <a href="#contacto" class="btn">Inscribirme</a>
                 </div>
                 <div class="service-card">
-                    <h3>Cursos Grabados</h3>
-                    <p>Contenido estructurado sobre aperturas, tácticas y finales - ver cuando quieras.</p>
-                    <p><strong>USD 49/curso completo | ARS 4.900/curso completo</strong></p>
+                    <h3>Programas de Entrenamiento</h3>
+                    <p>Planes mensuales con seguimiento completo y material exclusivo.</p>
+                    <p><strong>USD 89/mes | ARS 8.900/mes</strong></p>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Noticias -->
+        <section id="noticias">
+            <h2>Noticias y Torneos</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>¡Torneo de Pascua Ganado!</h3>
+                    <p>Nuestro alumno Mateo S. se llevó el primer puesto del torneo regional.</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver Detalles</a>
+                </div>
+                <div class="news-card">
+                    <h3>Nuevo Turno de Clases</h3>
+                    <p>Agregamos clases los sábados por la mañana para principiantes.</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Más Info</a>
+                </div>
+                <div class="news-card">
+                    <h3>Próximo Torneo Nacional</h3>
+                    <p>Del 10 al 12 de junio - inscripciones abiertas hasta el 31 de mayo.</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Inscribirme</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Tienda Online -->
+        <section id="tienda">
+            <h2>Tienda Online</h2>
+            <p>Productos oficiales del club y materiales de ajedrez para tu entrenamiento</p>
+            <div class="shop-grid">
+                <div class="product-card">
+                    <h3>Libro "De Peón a Rey"</h3>
+                    <p>Guía completa para aprender ajedrez desde cero.</p>
+                    <p><strong>USD 29 | ARS 2.900</strong></p>
+                    <a href="#contacto" class="btn">Comprar</a>
+                </div>
+                <div class="product-card">
+                    <h3>Tablero de Ajedrez Digital</h3>
+                    <p>Tablero interactivo compatible con nuestras clases online.</p>
+                    <p><strong>USD 79 | ARS 7.900</strong></p>
+                    <a href="#contacto" class="btn">Comprar</a>
+                </div>
+                <div class="product-card">
+                    <h3>Set de Piezas de Madera</h3>
+                    <p>Piezas de ajedrez de madera maciza con logo del club.</p>
+                    <p><strong>USD 59 | ARS 5.900</strong></p>
+                    <a href="#contacto" class="btn">Comprar</a>
+                </div>
+                <div class="product-card">
+                    <h3>Cuaderno de Entrenamiento</h3>
+                    <p>Cuaderno con plantillas para anotar partidas y ejercicios.</p>
+                    <p><strong>USD 15 | ARS 1.500</strong></p>
                     <a href="#contacto" class="btn">Comprar</a>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Testimonios -->
-        <section id="testimonios">
-            <h2>Qué Dicen Nuestros Alumnos</h2>
-            <div class="testimonial">
-                <p>"Empecé desde cero y ahora puedo jugar torneos locales. Las clases son claras y el entrenador se adapta a mi ritmo."</p>
-                <p>- Juan P., Rosario</p>
-            </div>
-            <div class="testimonial">
-                <p>"Los cursos grabados me ayudaron mucho con las aperturas. Poder verlos varias veces me permitió dominar cada concepto."</p>
-                <p>- Ana M., España</p>
-            </div>
-        </section>
-
-        <!-- Sección de Noticias y Torneos -->
-        <section id="noticias">
-            <h2>Noticias y Torneos</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <h3>Bienvenida al Club!</h3>
-                    <p>¡Estamos emocionados de abrir nuestras puertas y compartir nuestra pasión por el ajedrez con vos!</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
-                </div>
-                <div class="news-card">
-                    <h3>Primer Torneo Infantil</h3>
-                    <p>El próximo 15 de mayo organizamos nuestro primer torneo infantil - inscripciones abiertas!</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
-                </div>
-                <div class="news-card">
-                    <h3>Nuevas Clases para Principiantes</h3>
-                    <p>Agregamos turnos de mañana para quienes empiezan en el mundo del ajedrez.</p>
-                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Contacto -->
+        <!-- Sección Contacto -->
         <section id="contacto">
-            <h2>Contáctanos</h2>
-            <p>¿Tienes preguntas? Escríbenos y te responderemos a la brevedad.</p>
+            <h2>Contacto y Consultas</h2>
             <div class="contact-info">
-                <p><strong>Horario de atención:</strong> Lun-Vie 9:00 - 20:00 (UTC-3)</p>
+                <p><strong>Horario:</strong> Lun-Vie 9:00 - 20:00 | Sáb 10:00 - 14:00 (UTC-3)</p>
                 <p><strong>Correo:</strong> <a href="mailto:clubdepeonarey@gmail.com" class="social-link">clubdepeonarey@gmail.com</a></p>
                 <p><strong>Instagram:</strong> <a href="https://instagram.com/depeon.arey" target="_blank" class="social-link">@depeon.arey</a></p>
-                <p><strong>Pagos:</strong> Aceptamos dólares vía Stripe, PayPal o transferencia internacional | Pesos argentinos vía MercadoPago.</p>
+                <p><strong>Pagos:</strong> Dólares (Stripe/PayPal) | Pesos (MercadoPago) | Transferencias bancarias</p>
             </div>
             <a href="mailto:clubdepeonarey@gmail.com" class="btn">Enviar Mensaje</a>
         </section>
     </div>
-</body>
+
+    <!-- Script para resaltar solapa activa -->
+    <script>
+        // Cambiar solapa activa al hacer scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navTabs = document.querySelectorAll('.nav-tab');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('href') === `#${currentSection}`) {
+                    tab.classList.add('active');
+                }
+            });
+        });
+
+        // Cambiar solapa activa al hacer click
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</head>
 </html>
