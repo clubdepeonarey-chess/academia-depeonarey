@@ -1,94 +1,131 @@
-<!-- Contenedor Principal -->
-<div class="container">
-    <!-- Sección Clases -->
-    <section id="clases">
-        <h2>Clases y Servicios</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Clases Individuales</h3>
-                <p>Entrenamiento personalizado.</p>
-                <p><strong>USD 25 | ARS 3.500</strong></p>
-                <a href="#contacto" class="btn">Reservar</a>
-            </div>
-            <div class="card">
-                <h3>Clases Grupales</h3>
-                <p>Aprendé junto a otros alumnos.</p>
-                <p><strong>USD 12 | ARS 1.200</strong></p>
-                <a href="#contacto" class="btn">Inscribirme</a>
-            </div>
-            <div class="card">
-                <h3>Programas Mensuales</h3>
-                <p>Seguimiento completo.</p>
-                <p><strong>USD 89 | ARS 8.900</strong></p>
-                <a href="#contacto" class="btn">Consultar</a>
-            </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club De Ajedrez ¡De Peón A Rey!</title>
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlace a Font Awesome para los iconos de carrito e Instagram -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Aquí el logo del club, con la extensión .jpeg corregida -->
+            <img src="logo-de-peon-a-rey.jpeg" alt="Club De Ajedrez ¡De Peón A Rey!">
         </div>
-    </section>
-
-    <!-- Carga las sesiones desde archivos separados -->
-    <div id="contenedor-noticias"></div>
-    <div id="contenedor-tienda"></div>
-    <div id="contenedor-canal"></div>
-
-    <!-- Sección Contacto -->
-    <section id="contacto">
-        <h2>Contacto y Redes</h2>
-        <div class="contact-info">
-            <p><strong>Horario:</strong> Lun-Vie 9:00-20:00 | Sáb 10:00-14:00</p>
-            <p><strong>Correo:</strong> <a href="mailto:clubdeajedrezpena@gmail.com">clubdeajedrezpena@gmail.com</a></p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/depeonarey" target="_blank">@depeonarey</a></p>
+        <nav>
+            <ul>
+                <li><a href="#clases">Clases</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <!-- Puedes añadir más enlaces de navegación aquí si lo deseas -->
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
         </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        <!-- Sección Clases -->
+        <section id="clases">
+            <h2>Clases y Servicios</h2>
+            <div class="grid">
+                <div class="card" data-id="1" data-name="Clases Individuales" data-price="25" data-price-ars="3500">
+                    <h3>Clases Individuales</h3>
+                    <p>Entrenamiento personalizado.</p>
+                    <p><strong>USD 25 | ARS 3.500</strong></p>
+                    <a href="#" class="btn add-to-cart">Reservar</a>
+                </div>
+                <div class="card" data-id="2" data-name="Clases Grupales" data-price="12" data-price-ars="1200">
+                    <h3>Clases Grupales</h3>
+                    <p>Aprendé junto a otros alumnos.</p>
+                    <p><strong>USD 12 | ARS 1.200</strong></p>
+                    <a href="#" class="btn add-to-cart">Inscribirme</a>
+                </div>
+                <div class="card" data-id="3" data-name="Programas Mensuales" data-price="89" data-price-ars="8900">
+                    <h3>Programas Mensuales</h3>
+                    <p>Seguimiento completo.</p>
+                    <p><strong>USD 89 | ARS 8.900</strong></p>
+                    <a href="#" class="btn add-to-cart">Consultar</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carga las sesiones desde archivos separados -->
+        <div id="contenedor-noticias"></div>
+        <div id="contenedor-tienda"></div>
+        <div id="contenedor-canal"></div>
+
+        <!-- Sección Contacto -->
+        <section id="contacto">
+            <h2>Contacto y Redes</h2>
+            <div class="contact-info">
+                <p><strong>Horario:</strong> Lun-Vie 9:00-20:00 | Sáb 10:00-14:00</p>
+                <p><strong>Correo:</strong> <a href="mailto:clubdeajedrezpena@gmail.com">clubdeajedrezpena@gmail.com</a></p>
+                <!-- Enlace a Instagram con el icono de Font Awesome -->
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/depeonarey" target="_blank"><i class="fab fa-instagram"></i> @depeonarey</a></p>
+            </div>
+            <!-- Botón de pago para Mercado Pago -->
+            <button class="btn checkout-btn">Pagar con Mercado Pago</button>
+        </section>
     </div>
-</div>
 
-<!-- Script para cargar sesiones -->
-<script>
-    // Función para cargar cada sesión
-    function cargarSesion(archivo, contenedor) {
-        fetch(archivo)
-            .then(res => res.text())
-            .then(html => document.getElementById(contenedor).innerHTML = html)
-            .catch(err => console.log('Error:', err));
-    }
+    <!-- Script para cargar sesiones y lógica del carrito -->
+    <script>
+        // Función para cargar cada sesión
+        function cargarSesion(archivo, contenedor) {
+            fetch(archivo)
+                .then(res => res.text())
+                .then(html => document.getElementById(contenedor).innerHTML = html)
+                .catch(err => console.log('Error:', err));
+        }
 
-    // Cargar las sesiones al abrir la página
-    window.onload = () => {
-        cargarSesion('sesion-noticias.html', 'contenedor-noticias');
-        cargarSesion('sesion-tienda.html', 'contenedor-tienda');
-        cargarSesion('sesion-canal.html', 'contenedor-canal');
-    };
+        // Cargar las sesiones al abrir la página y actualizar el carrito
+        window.onload = () => {
+            cargarSesion('sesion-noticias.html', 'contenedor-noticias');
+            cargarSesion('sesion-tienda.html', 'contenedor-tienda');
+            cargarSesion('sesion-canal.html', 'contenedor-canal');
+            updateCart(); // Inicializar el contador del carrito
+        };
 
-    // Script del carrito (ya integrado)
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    function updateCart() {
-        const count = cart.reduce((t, i) => t + i.cantidad, 0);
-        document.querySelector('.cart-count').textContent = count;
-    }
+        // Lógica del carrito de compras
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateCart() {
+            const count = cart.reduce((t, i) => t + i.cantidad, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
 
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const card = btn.closest('.card');
-            const producto = {
-                id: card.dataset.id,
-                nombre: card.dataset.name,
-                precioUsd: card.dataset.price,
-                precioArs: card.dataset.priceArs,
-                cantidad: 1
-            };
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+                const card = btn.closest('.card');
+                const producto = {
+                    id: card.dataset.id,
+                    nombre: card.dataset.name,
+                    precioUsd: parseFloat(card.dataset.price),
+                    precioArs: parseFloat(card.dataset.priceArs),
+                    cantidad: 1
+                };
 
-            const existente = cart.find(p => p.id === producto.id);
-            if (existente) existente.cantidad++;
-            else cart.push(producto);
+                const existente = cart.find(p => p.id === producto.id);
+                if (existente) existente.cantidad++;
+                else cart.push(producto);
 
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCart();
-            alert(`${producto.nombre} agregado al carrito!`);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+                alert(`${producto.nombre} agregado al carrito!`);
+            });
         });
-    });
 
-    // Botón de pago en MercadoPago
-    document.querySelector('.checkout-btn').addEventListener('click', () => {
-        if (cart.length === 0) alert('Carrito vacío!');
-        else window.location.href = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID';
-    });
-</script>
+        // Lógica del botón de pago (Mercado Pago)
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) alert('Carrito vacío!');
+            else window.location.href = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID';
+        });
+    </script>
+</body>
+</html>
