@@ -3,236 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club de Peón a Rey - Ajedrez</title>
-    <meta name="description" content="Clases de ajedrez online para todos los niveles. Aprende con entrenadores expertos - individuales, grupales y cursos grabados. Pago en dólares.">
+    <title>Club De Ajedrez ¡De Peón A Rey!</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟♚</text></svg>" type="image/svg+xml">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
         }
-        :root {
-            --color-principal: #1a365d; /* Azul ajedrez */
-            --color-secundario: #f49d1a; /* Dorado */
-            --color-claro: #f8f9fa;
-            --color-oscuro: #212529;
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
         header {
-            background-color: var(--color-principal);
+            background-color: #2c3e50;
             color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 1.5rem;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--color-secundario);
-        }
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1559113513-b49a45f49a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 5rem 5%;
+            padding: 2rem;
             text-align: center;
         }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            background-color: var(--color-secundario);
-            color: var(--color-oscuro);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #e08e0b;
-        }
-        .seccion {
-            padding: 3rem 5%;
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
         }
-        .seccion h2 {
-            color: var(--color-principal);
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        section {
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
         }
-        .servicios-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
-        .servicio {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 2rem;
+        .service-card {
             text-align: center;
-            transition: box-shadow 0.3s;
-        }
-        .servicio:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .servicio h3 {
-            color: var(--color-principal);
-            margin-bottom: 1rem;
-        }
-        .precio {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--color-secundario);
-            margin: 1rem 0;
-        }
-        .testimonios {
-            background-color: var(--color-claro);
-        }
-        .testimonio {
-            max-width: 800px;
-            margin: 0 auto 2rem;
             padding: 1.5rem;
-            border-left: 4px solid var(--color-principal);
+            border: 1px solid #eee;
+            border-radius: 8px;
         }
-        .contacto {
-            background-color: var(--color-principal);
-            color: white;
+        .testimonial {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 4px solid #3498db;
         }
-        .contacto h2 {
-            color: white;
-        }
-        .contacto-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-        .formulario input, .formulario textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-radius: 5px;
-        }
-        footer {
-            background-color: var(--color-oscuro);
-            color: white;
+        .contact-info {
             text-align: center;
-            padding: 1.5rem 5%;
+            margin-top: 1rem;
         }
-        @media (max-width: 768px) {
-            nav {
-                margin-top: 1rem;
-                width: 100%;
-                text-align: center;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .contacto-grid {
-                grid-template-columns: 1fr;
-            }
+        .social-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .social-link:hover {
+            text-decoration: underline;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .news-card {
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
-        <div class="logo">Peón a Rey - Ajedrez</div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#testimonios">Testimonios</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+    <header id="inicio">
+        <h1>Club De Ajedrez ¡De Peón A Rey!</h1>
+        <p>Clases online para principiantes, intermedias y avanzados. Pago en dólares y pesos argentinos - Flexibilidad horaria.</p>
+        <a href="#cursos" class="btn">Ver Nuestros Cursos</a>
     </header>
 
-    <!-- Sección Principal -->
-    <section class="hero" id="inicio">
-        <h1>Aprende Ajedrez con Expertos</h1>
-        <p>Clases online para principiantes, intermedias y avanzados. Pago en dólares y flexibilidad horaria.</p>
-        <a href="#servicios" class="btn">Ver Nuestros Cursos</a>
-    </section>
-
-    <!-- Sección de Servicios -->
-    <section class="seccion" id="servicios">
-        <h2>Nuestros Servicios</h2>
-        <div class="servicios-grid">
-            <div class="servicio">
-                <h3>Clases Individuales</h3>
-                <p>Entrenamiento personalizado adaptado a tu nivel y objetivos.</p>
-                <p class="precio">USD 25/clase</p>
-                <a href="#contacto" class="btn">Reservar</a>
+    <div class="container">
+        <!-- Sección de Servicios -->
+        <section id="cursos">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Clases Individuales</h3>
+                    <p>Entrenamiento personalizado adaptado a tu nivel y objetivos.</p>
+                    <p><strong>USD 25/clase | ARS 3.500/clase</strong></p>
+                    <a href="#contacto" class="btn">Reservar</a>
+                </div>
+                <div class="service-card">
+                    <h3>Clases Grupales</h3>
+                    <p>Aprende junto a otros alumnos con dinámicas y actividades interactivas.</p>
+                    <p><strong>USD 12/clase | ARS 1.200/clase</strong></p>
+                    <a href="#contacto" class="btn">Inscribirme</a>
+                </div>
+                <div class="service-card">
+                    <h3>Cursos Grabados</h3>
+                    <p>Contenido estructurado sobre aperturas, tácticas y finales - ver cuando quieras.</p>
+                    <p><strong>USD 49/curso completo | ARS 4.900/curso completo</strong></p>
+                    <a href="#contacto" class="btn">Comprar</a>
+                </div>
             </div>
-            <div class="servicio">
-                <h3>Clases Grupales</h3>
-                <p>Aprende junto a otros alumnos con dinámicas y actividades interactivas.</p>
-                <p class="precio">USD 12/clase</p>
-                <a href="#contacto" class="btn">Inscribirme</a>
-            </div>
-            <div class="servicio">
-                <h3>Cursos Grabados</h3>
-                <p>Contenido estructurado sobre aperturas, tácticas y finales - ver cuando quieras.</p>
-                <p class="precio">USD 49/curso completo</p>
-                <a href="#contacto" class="btn">Comprar</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección de Testimonios -->
-    <section class="seccion testimonios" id="testimonios">
-        <h2>Qué Dicen Nuestros Alumnos</h2>
-        <div class="testimonio">
-            <p>"Empecé desde cero y ahora puedo jugar torneos locales. Las clases son claras y el entrenador se adapta a mi ritmo."</p>
-            <p><strong>- Juan P., Rosario</strong></p>
-        </div>
-        <div class="testimonio">
-            <p>"Los cursos grabados me ayudaron mucho con las aperturas. Poder verlos varias veces me permitió dominar cada concepto."</p>
-            <p><strong>- Ana M., España</strong></p>
-        </div>
-    </section>
+        <!-- Sección de Testimonios -->
+        <section id="testimonios">
+            <h2>Qué Dicen Nuestros Alumnos</h2>
+            <div class="testimonial">
+                <p>"Empecé desde cero y ahora puedo jugar torneos locales. Las clases son claras y el entrenador se adapta a mi ritmo."</p>
+                <p>- Juan P., Rosario</p>
+            </div>
+            <div class="testimonial">
+                <p>"Los cursos grabados me ayudaron mucho con las aperturas. Poder verlos varias veces me permitió dominar cada concepto."</p>
+                <p>- Ana M., España</p>
+            </div>
+        </section>
 
-    <!-- Sección de Contacto -->
-    <section class="seccion contacto" id="contacto">
-        <h2>Contáctanos</h2>
-        <div class="contacto-grid">
-            <div>
-                <p>¿Tienes preguntas? Escribenos y te responderemos a la brevedad.</p>
+        <!-- Sección de Noticias y Torneos -->
+        <section id="noticias">
+            <h2>Noticias y Torneos</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>Bienvenida al Club!</h3>
+                    <p>¡Estamos emocionados de abrir nuestras puertas y compartir nuestra pasión por el ajedrez con vos!</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
+                </div>
+                <div class="news-card">
+                    <h3>Primer Torneo Infantil</h3>
+                    <p>El próximo 15 de mayo organizamos nuestro primer torneo infantil - inscripciones abiertas!</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
+                </div>
+                <div class="news-card">
+                    <h3>Nuevas Clases para Principiantes</h3>
+                    <p>Agregamos turnos de mañana para quienes empiezan en el mundo del ajedrez.</p>
+                    <a href="https://instagram.com/depeon.arey" target="_blank" class="btn">Ver en Instagram</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes preguntas? Escríbenos y te responderemos a la brevedad.</p>
+            <div class="contact-info">
                 <p><strong>Horario de atención:</strong> Lun-Vie 9:00 - 20:00 (UTC-3)</p>
-                <p><strong>Pagos:</strong> Aceptamos dólares vía Stripe, PayPal o transferencia internacional.</p>
+                <p><strong>Correo:</strong> <a href="mailto:clubdepeonarey@gmail.com" class="social-link">clubdepeonarey@gmail.com</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/depeon.arey" target="_blank" class="social-link">@depeon.arey</a></p>
+                <p><strong>Pagos:</strong> Aceptamos dólares vía Stripe, PayPal o transferencia internacional | Pesos argentinos vía MercadoPago.</p>
             </div>
-            <form class="formulario">
-                <input type="text" placeholder="Tu Nombre" required>
-                <input type="email" placeholder="Tu Correo Electrónico" required>
-                <input type="text" placeholder="Asunto (ej: Clase Individual)" required>
-                <textarea rows="4" placeholder="Tu Mensaje" required></textarea>
-                <button type="submit" class="btn">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2026 Club de Peón a Rey - Ajedrez. Todos los derechos reservados.</p>
-    </footer>
+            <a href="mailto:clubdepeonarey@gmail.com" class="btn">Enviar Mensaje</a>
+        </section>
+    </div>
 </body>
 </html>
