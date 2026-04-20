@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club De Ajedrez ¡De Peón A Rey!</title>
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟♚</text></svg>" type="image/svg+xml">
+    <!-- Favicon con colores del club -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%232E8B57%22>♟</text><text x=%2240%22 y=%22.9em%22 font-size=%2290%22 fill=%22%23FF7F00%22>♚</text></svg>" type="image/svg+xml">
     <style>
         * {
             margin: 0;
@@ -14,15 +14,29 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
         header {
-            background-color: #2c3e50;
+            background-color: #2E8B57; /* Verde club */
             color: white;
             padding: 2rem;
             text-align: center;
+            position: relative;
+        }
+        /* Logo del club en el header */
+        .club-logo {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2.5rem;
+        }
+        .club-logo span:first-child {
+            color: #FF7F00; /* Anaranjado club */
+        }
+        .club-logo span:last-child {
+            color: white;
         }
         .container {
             max-width: 1200px;
@@ -32,14 +46,16 @@
         .btn {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background-color: #3498db;
+            background-color: #FF7F00; /* Anaranjado club */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 1rem;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #E67300; /* Anaranjado más oscuro */
         }
         section {
             margin-bottom: 3rem;
@@ -49,10 +65,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
-            color: #2c3e50;
+            color: #2E8B57; /* Verde club */
             margin-bottom: 1.5rem;
             text-align: center;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid #FF7F00; /* Anaranjado club */
             padding-bottom: 0.5rem;
         }
         .services-grid {
@@ -66,22 +82,27 @@
             padding: 1.5rem;
             border: 1px solid #eee;
             border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2); /* Sombra verde */
         }
         .testimonial {
             margin: 1.5rem 0;
             padding: 1rem;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #2E8B57; /* Verde club */
         }
         .contact-info {
             text-align: center;
             margin-top: 1rem;
         }
         .social-link {
-            color: #3498db;
+            color: #2E8B57; /* Verde club */
             text-decoration: none;
             font-weight: bold;
         }
         .social-link:hover {
+            color: #FF7F00; /* Anaranjado club */
             text-decoration: underline;
         }
         .news-grid {
@@ -95,11 +116,26 @@
             border: 1px solid #eee;
             border-radius: 8px;
             text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            box-shadow: 0 4px 8px rgba(255, 127, 0, 0.2); /* Sombra naranja */
+        }
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .club-logo {
+                position: static;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header id="inicio">
+        <!-- Logo del club visible en el header -->
+        <div class="club-logo">
+            <span>♟</span><span>♚</span>
+        </div>
         <h1>Club De Ajedrez ¡De Peón A Rey!</h1>
         <p>Clases online para principiantes, intermedias y avanzados. Pago en dólares y pesos argentinos - Flexibilidad horaria.</p>
         <a href="#cursos" class="btn">Ver Nuestros Cursos</a>
