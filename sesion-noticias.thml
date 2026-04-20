@@ -1,0 +1,20 @@
+<section id="noticias">
+    <h2>Noticias y Torneos</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>¡Torneo de Pascua Ganado!</h3>
+            <p>Nuestro alumno Mateo S. se llevó el primer puesto.</p>
+            <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Ver Detalles</a>
+        </div>
+        <div class="card">
+            <h3>Nuevo Turno de Clases</h3>
+            <p>Agregadas clases los sábados por la mañana.</p>
+            <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Más Info</a>
+        </div>
+        <div class="card">
+            <h3>Torneo Nacional Junio</h3>
+            <p>Inscripciones abiertas hasta el 31/05.</p>
+            <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Inscribirme</a>
+        </div>
+    </div>
+</section>
