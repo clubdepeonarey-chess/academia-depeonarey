@@ -3,126 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título barra de direcciones -->
     <title>Club de Ajedrez de Peña Rey.com</title>
-    <!-- Favicon Verde y Naranja -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%232E8B57'>♟</text><text x='40' y='.9em' font-size='90' fill='%23FF7F00'>♚</text></svg>" type="image/svg+xml">
+    <!-- Estilos -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        /* Barra de Navegación - Funciona en todos lados */
-        .nav-bar {
-            background-color: #2E8B57;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-tab {
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-        .nav-tab:hover, .nav-tab.active {
-            background-color: #FF7F00;
-        }
-        /* Header con Logo */
-        header {
-            background-color: #2E8B57;
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-        /* Logo CORRECTO - Cargado como imagen local */
-        .club-logo {
-            max-width: 220px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        /* Contenedor Principal */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        /* Secciones */
-        section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #2E8B57;
-            text-align: center;
-            border-bottom: 2px solid #FF7F00;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        /* Grillas */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .card {
-            text-align: center;
-            padding: 1.5rem;
-            border: 1px solid #eee;
-            border-radius: 8px;
-        }
-        /* Botones */
-        .btn {
-            background-color: #FF7F00;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #E67300;
-        }
-        /* Sección YouTube */
-        .youtube-section {
-            text-align: center;
-        }
-        .youtube-logo {
-            width: 80px;
-            margin-bottom: 1rem;
-        }
-        /* Contacto */
-        .contact-info {
-            text-align: center;
-            line-height: 1.8;
-        }
-        .contact-info a {
-            color: #2E8B57;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            color: #FF7F00;
-            text-decoration: underline;
-        }
+        /* AQUÍ VAN TODOS LOS ESTILOS QUE TENÍAS ANTES */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
+        .nav-bar { background-color: #2E8B57; padding: 1rem; display: flex; justify-content: center; gap: 0.5rem; position: sticky; top: 0; z-index: 100; }
+        .nav-tab { color: white; text-decoration: none; padding: 0.8rem 1rem; border-radius: 5px; font-size: 0.9rem; transition: background-color 0.3s; }
+        .nav-tab:hover, .nav-tab.active { background-color: #FF7F00; }
+        header { background-color: #2E8B57; color: white; padding: 2rem 1rem; text-align: center; }
+        .club-logo { max-width: 220px; height: auto; margin-bottom: 1rem; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        section { margin-bottom: 3rem; padding: 2rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #2E8B57; text-align: center; border-bottom: 2px solid #FF7F00; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .card { text-align: center; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; }
+        .btn { background-color: #FF7F00; color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 5px; display: inline-block; margin-top: 1rem; transition: background-color 0.3s; }
+        .btn:hover { background-color: #E67300; }
+        .youtube-section { text-align: center; }
+        .youtube-logo { width: 80px; margin-bottom: 1rem; }
+        .contact-info { text-align: center; line-height: 1.8; }
+        .contact-info a { color: #2E8B57; font-weight: bold; text-decoration: none; }
+        .contact-info a:hover { color: #FF7F00; text-decoration: underline; }
+        /* Estilos del carrito */
+        .cart-icon { position: fixed; top: 1rem; right: 1rem; background-color: #FF7F00; padding: 0.8rem; border-radius: 50%; cursor: pointer; z-index: 101; display: flex; align-items: center; justify-content: center; }
+        .cart-count { background-color: #2E8B57; color: white; font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 50%; margin-left: 0.5rem; }
+        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 200; }
+        .cart-content { background-color: white; width: 90%; max-width: 500px; margin: 2rem auto; padding: 2rem; border-radius: 8px; position: relative; }
+        .close-cart { position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; cursor: pointer; }
+        .cart-items { margin: 1rem 0; max-height: 300px; overflow-y: auto; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #eee; }
+        .checkout-btn, .paypal-btn { width: 100%; margin: 0.5rem 0; }
     </style>
 </head>
 <body>
@@ -136,16 +50,16 @@
         <a href="#contacto" class="nav-tab">Contacto</a>
     </nav>
 
-    <!-- Header con Logo -->
+    <!-- Header -->
     <header id="inicio">
-        <!-- Logo SUBIDO AL REPOSITORIO - RUTA CORRECTA -->
-        <img src="https://raw.githubusercontent.com/clubdepeonarey-chess/academia-depeonarey/main/logo-club.png" alt="Logo Club de Ajedrez de Peña Rey" class="club-logo">
+        <img src="https://raw.githubusercontent.com/clubdepeonarey-chess/academia-depeonarey/main/logo-oficial.png" alt="Logo Club de Ajedrez de Peña Rey" class="club-logo">
         <h1>Club de Ajedrez de Peña Rey</h1>
         <p>Rosario, Santa Fe - Argentina</p>
     </header>
 
+    <!-- Contenedor Principal - Aquí se cargarán las sesiones -->
     <div class="container">
-        <!-- Sección Clases -->
+        <!-- Sección Clases (podés ponerla en un archivo separado también) -->
         <section id="clases">
             <h2>Clases y Servicios</h2>
             <div class="grid">
@@ -170,105 +84,81 @@
             </div>
         </section>
 
-        <!-- Sección Noticias -->
-        <section id="noticias">
-            <h2>Noticias y Torneos</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>¡Torneo de Pascua Ganado!</h3>
-                    <p>Nuestro alumno Mateo S. se llevó el primer puesto.</p>
-                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Ver Detalles</a>
-                </div>
-                <div class="card">
-                    <h3>Nuevo Turno de Clases</h3>
-                    <p>Clases los sábados por la mañana.</p>
-                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Más Info</a>
-                </div>
-                <div class="card">
-                    <h3>Torneo Nacional Junio</h3>
-                    <p>Inscripciones abiertas hasta el 31/05.</p>
-                    <a href="https://instagram.com/depeonarey" target="_blank" class="btn">Inscribirme</a>
-                </div>
-            </div>
-        </section>
+        <!-- CONTENEDORES VACÍOS PARA LAS SESIONES -->
+        <div id="contenedor-noticias"></div>
+        <div id="contenedor-tienda"></div>
+        <div id="contenedor-canal"></div>
 
-        <!-- Sección Tienda -->
-        <section id="tienda">
-            <h2>Tienda Online</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Libro "De Peña Rey"</h3>
-                    <p>Guía completa para principiantes.</p>
-                    <p><strong>USD 29 | ARS 2.900</strong></p>
-                    <a href="#contacto" class="btn">Comprar</a>
-                </div>
-                <div class="card">
-                    <h3>Tablero Digital</h3>
-                    <p>Compatible con clases online.</p>
-                    <p><strong>USD 79 | ARS 7.900</strong></p>
-                    <a href="#contacto" class="btn">Comprar</a>
-                </div>
-                <div class="card">
-                    <h3>Set de Madera</h3>
-                    <p>Con logo del club.</p>
-                    <p><strong>USD 59 | ARS 5.900</strong></p>
-                    <a href="#contacto" class="btn">Comprar</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Canal YouTube -->
-        <section id="canal" class="youtube-section">
-            <h2>Nuestro Canal de YouTube</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.png" alt="Logo YouTube" class="youtube-logo">
-            <p>¡Suscribite para clases gratuitas y análisis de partidas!</p>
-            <!-- ENLACE CORRECTO AL CANAL -->
-            <a href="https://www.youtube.com/channel/UC1234567890abcdefghij" target="_blank" class="btn">Ir al Canal</a>
-        </section>
-
-        <!-- Sección Contacto -->
+        <!-- Sección Contacto (también podés separarla) -->
         <section id="contacto">
             <h2>Contacto y Redes</h2>
             <div class="contact-info">
                 <p><strong>Horario:</strong> Lun-Vie 9:00-20:00 | Sáb 10:00-14:00 (UTC-3)</p>
                 <p><strong>Correo:</strong> <a href="mailto:clubdeajedrezpena@gmail.com">clubdeajedrezpena@gmail.com</a></p>
                 <p><strong>Instagram:</strong> <a href="https://instagram.com/depeonarey" target="_blank">@depeonarey</a></p>
-                <p><strong>YouTube:</strong> <a href="https://www.youtube.com/channel/UC1234567890abcdefghij" target="_blank">@clubdeajedrezpena</a></p>
+                <p><strong>YouTube:</strong> <a href="TU_ENLACE_YOUTUBE" target="_blank">@clubdeajedrezpena</a></p>
                 <p><strong>Pagos:</strong> Dólares (Stripe/PayPal) | Pesos (MercadoPago)</p>
                 <a href="mailto:clubdeajedrezpena@gmail.com" class="btn">Enviar Mensaje</a>
             </div>
         </section>
     </div>
 
-    <!-- Script para que las solapas funcionen -->
-    <script>
-        // Scroll suave y activar solapa
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Quitar clase active de todas
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                // Agregar active a la clickeada
-                this.classList.add('active');
-                // Ir a la sección
-                const target = this.getAttribute('href');
-                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+    <!-- Ícono del Carrito -->
+    <div class="cart-icon">
+        <span>🛒</span>
+        <span class="cart-count">0</span>
+    </div>
 
-        // Activar solapa al hacer scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            let current = '';
-            sections.forEach(sec => {
-                const secTop = sec.offsetTop;
-                if(window.scrollY >= secTop - 120) current = sec.getAttribute('id');
-            });
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-                if(tab.getAttribute('href') === '#' + current) tab.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+    <!-- Modal del Carrito -->
+    <div class="cart-modal">
+        <div class="cart-content">
+            <span class="close-cart">&times;</span>
+            <h3>Tu Carrito</h3>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <p>Total USD: <span id="total-usd">0</span></p>
+                <p>Total ARS: <span id="total-ars">0</span></p>
+            </div>
+            <button class="btn checkout-btn">Finalizar Compra (MercadoPago)</button>
+            <button class="btn paypal-btn">Pagar con PayPal</button>
+        </div>
+    </div>
+
+    <!-- Script para cargar las sesiones -->
+    <script>
+        // Función para cargar cada sesión desde su archivo
+        function cargarSesion(archivo, contenedorId) {
+            fetch(archivo)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById(contenedorId).innerHTML = html;
+                })
+                .catch(error => console.log('Error al cargar la sesión:', error));
+        }
+
+        // Cargar las sesiones cuando la página esté lista
+        window.onload = function() {
+            cargarSesion('sesion-noticias.html', 'contenedor-noticias');
+            cargarSesion('sesion-tienda.html', 'contenedor-tienda');
+            cargarSesion('sesion-canal.html', 'contenedor-canal');
+        };
+
+        // Script del carrito (igual que antes)
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+        function updateCartContent() {
+            const cartItems = document.querySelector('.cart-items');
+            cartItems.innerHTML = '';
+            let totalUsd = 0;
+            let totalArs = 0;
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <div>
+                        <p><strong>${item.name}</strong></p>
+                        <p>Cantidad: ${item.quantity}</p>
+                    </div>
