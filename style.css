@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; /* Un fondo claro */
+    color: #333;
+}
+
+header {
+    background-color: #2ECC71; /* Verde esmeralda */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+.cart-icon .fa-shopping-cart {
+    color: white;
+}
+
+.cart-count {
+    background-color: #FF8C00; /* Naranja oscuro */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.6em;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2ECC71; /* Verde esmeralda para los títulos */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    color: #FF8C00; /* Naranja oscuro para los subtítulos de las tarjetas */
+    margin-top: 0;
+}
+
+.card p {
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #2ECC71; /* Verde esmeralda para los botones */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #27AE60; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Estilos de Contacto */
+#contacto .contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contacto .contact-info p {
+    margin: 5px 0;
+}
+
+#contacto .contact-info a {
+    color: #2ECC71;
+    text-decoration: none;
+}
+
+#contacto .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Icono de Instagram */
+#contacto .contact-info .fab.fa-instagram {
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.checkout-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    background-color: #FF8C00; /* Naranja oscuro para el botón de pago */
+}
+
+.checkout-btn:hover {
+    background-color: #E67E22; /* Naranja un poco más claro al pasar el ratón */
+}
