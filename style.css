@@ -271,21 +271,18 @@ h2 {
   margin: auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para que destaque */
   border-radius: 8px; /* Bordes redondeados */
-  overflow: hidden; /* Para que las imágenes no se salgan */
-}
+  overflow: hidden; /* Para que las imágenes no se salgan */}
 
 /* Esconder las diapositivas por defecto */
 .product-slide {
-  display: none;
-}
+  display: none;}
 
 /* Imagen dentro de cada diapositiva */
 .product-slide img {
   width: 100%;
   height: auto;
   vertical-align: middle;
-  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
-}
+  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */}
 
 /* Descripción de la diapositiva */
 .slide-description {
@@ -297,14 +294,12 @@ h2 {
   bottom: 0; /* Abajo de la imagen */
   width: 100%;
   box-sizing: border-box; /* Incluir padding en el width */
-  border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */
-}
+  border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */}
 
 .slide-description h3 {
     margin-top: 0;
     margin-bottom: 5px;
-    font-size: 1.2em;
-}
+    font-size: 1.2em;}
 
 .slide-description p {
     margin-bottom: 0;
