@@ -383,6 +383,4 @@ h2 {
   margin-top: 15px; /* Margen superior para separarlo de otros elementos */
 }
 
-.mercadopago-button:hover {
-  background-color: #FF8C00; /* Un tono de naranja un poco más oscuro al pasar el ratón */
-}
+.mercadopago-button:hover {background-color: #FF8C00; /* Un tono de naranja un poco más oscuro al pasar el ratón */}
