@@ -367,3 +367,22 @@ h2 {
   from {opacity: .4}
   to {opacity: 1}
 }
+
+.mercadopago-button {
+  display: inline-block; /* Para que se comporte como un bloque pero en línea */
+  background-color: #FFA500; /* Color naranja */
+  color: white !important; /* Texto blanco para que resalte */
+  padding: 12px 25px; /* Espaciado interno del botón */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centra el texto */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+  margin-top: 15px; /* Margen superior para separarlo de otros elementos */
+}
+
+.mercadopago-button:hover {
+  background-color: #FF8C00; /* Un tono de naranja un poco más oscuro al pasar el ratón */
+}
